@@ -6,14 +6,26 @@
   },
   "configurePresets": [
     {
-      "name": "default",
+      "name": "base",
       "hidden": true,
       "generator": "Ninja",
       "binaryDir": "build/${presetName}",
       "cacheVariables": {
-        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true
+      }
+    },
+    {
+      "name": "local_deps",
+      "hidden": true,
+      "inherits": "base",
+      "cacheVariables": {
         "FETCHCONTENT_SOURCE_DIR_FREERTOS_KERNEL": "dependencies/FreeRTOS-Kernel/"
       }
+    },
+    {
+      "name": "default",
+      "hidden": true,
+      "inherits": "local_deps"
     },
     {
       "name": "posix",
@@ -50,19 +62,19 @@
       "name": "posix",
       "configurePreset": "posix",
       "cleanFirst": true,
-      "jobs": 4
+      "jobs": 12
     },
     {
       "name": "mingw",
       "configurePreset": "mingw",
       "cleanFirst": true,
-      "jobs": 4
+      "jobs": 12
     },
     {
       "name": "pic32mz",
       "configurePreset": "pic32mz",
       "cleanFirst": true,
-      "jobs": 4
+      "jobs": 12
     }
   ]
 }
