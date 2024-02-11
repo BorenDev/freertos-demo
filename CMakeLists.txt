@@ -16,9 +16,9 @@ if(NOT PROJECT_IS_TOP_LEVEL)
 endif()
 
 if(CONFIG_POSIX_GCC)
-  set(FREE_RTOS_CFG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/examples/Posix_GCC")
+  set(FREE_RTOS_CFG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/hello")
 elseif(CONFIG_PIC32MZ)
-  set(FREE_RTOS_CFG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/examples/PIC32MZ_MPLAB")
+  set(FREE_RTOS_CFG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/blink")
 elseif(CONFIG_WIN32_MINGW)
   set(FREE_RTOS_CFG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/examples/WIN32-MingW")
 endif()
@@ -31,4 +31,4 @@ target_compile_definitions(freertos_config INTERFACE projCOVERAGE_TEST=1)
 
 include(dependencies.cmake)
 
-add_subdirectory(demo)
+add_subdirectory(src)
