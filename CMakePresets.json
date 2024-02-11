@@ -1,0 +1,61 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 22
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true
+      }
+    },
+    {
+      "name": "posix",
+      "inherits": "default",
+      "cacheVariables": {
+        "CONFIG_POSIX_GCC": true,
+        "FREERTOS_PORT": "GCC_POSIX"
+      }
+    },
+    {
+      "name": "mingw",
+      "inherits": "default",
+      "cacheVariables": {
+        "CONFIG_PIC32MZ": true,
+        "FREERTOS_PORT": "MSVC_MINGW"
+      }
+    },
+    {
+      "name": "pic32mz",
+      "inherits": "default",
+      "cacheVariables": {
+        "CONFIG_PIC32MZ": true,
+        "FREERTOS_PORT": "MPLAB_PIC32MZ"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "default",
+      "hidden": true,
+      "configurePreset": "default"
+    },
+    {
+      "name": "posix",
+      "configurePreset": "posix"
+    },
+    {
+      "name": "mingw",
+      "configurePreset": "mingw"
+    },
+    {
+      "name": "pic32mz",
+      "configurePreset": "pic32mz"
+    }
+  ]
+}
