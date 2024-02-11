@@ -11,7 +11,8 @@
       "generator": "Ninja",
       "binaryDir": "build/${presetName}",
       "cacheVariables": {
-        "CMAKE_EXPORT_COMPILE_COMMANDS": true
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+        "FETCH_CONENT_SOURCE_DIR_FREERTOS_KERNEL": "dependencies"
       }
     },
     {
@@ -47,15 +48,21 @@
     },
     {
       "name": "posix",
-      "configurePreset": "posix"
+      "configurePreset": "posix",
+      "cleanFirst": true,
+      "jobs": 4
     },
     {
       "name": "mingw",
-      "configurePreset": "mingw"
+      "configurePreset": "mingw",
+      "cleanFirst": true,
+      "jobs": 4
     },
     {
       "name": "pic32mz",
-      "configurePreset": "pic32mz"
+      "configurePreset": "pic32mz",
+      "cleanFirst": true,
+      "jobs": 4
     }
   ]
 }
