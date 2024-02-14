@@ -39,7 +39,7 @@
       "name": "mingw",
       "inherits": "default",
       "cacheVariables": {
-        "CONFIG_PIC32MZ": true,
+        "CONFIG_MINGW": true,
         "FREERTOS_PORT": "MSVC_MINGW"
       }
     },
@@ -49,10 +49,10 @@
       "cacheVariables": {
         "CONFIG_PIC32MZ": true,
         "FREERTOS_PORT": "MPLAB_PIC32MZ",
-        "XC32_VERSION": "4.21",
+        "XC32_VERSION": "4.35",
         "DFP": "PIC32MZ-EF_DFP",
-        "DFP_VERSION": "1.3.58",
-        "PIC": "32MZ1024EFM100",
+        "DFP_VERSION": "1.4.168",
+        "PIC": "32MZ2048EFM144",
         "MPLABX_VERSION": "6.20"
       }
     }
@@ -78,8 +78,7 @@
     {
       "name": "pic32mz",
       "configurePreset": "pic32mz",
-      "cleanFirst": true,
-      "jobs": 12
+      "cleanFirst": true
     }
   ]
 }
