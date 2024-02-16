@@ -2,7 +2,7 @@
 DOCKER_CMD = podman run -it --rm --name=build_container --mount type=bind,source=${PWD},target=/src arch_mplabx:latest bash
 SHELL_CMD = podman run -it --rm --name=shell --mount type=bind,source=${PWD},target=/src arch_mplabx:latest bash
 
-all: demo_mingw demo_posix demo_pic32mz
+all: demo_mingw demo_posix demo_pic32mz example_posix example_mingw example_pic32mz
 
 demo_mingw:
 	$(DOCKER_CMD) cmake_build.sh demo_mingw
@@ -12,6 +12,15 @@ demo_posix:
 
 demo_pic32mz:
 	$(DOCKER_CMD) cmake_build.sh demo_pic32mz
+
+example_posix:
+	$(DOCKER_CMD) cmake_build.sh example_posix
+
+example_mingw:
+	$(DOCKER_CMD) cmake_build.sh example_mingw
+
+example_pic32mz:
+	$(DOCKER_CMD) cmake_build.sh example_pic32mz
 
 shell:
 	$(SHELL_CMD)

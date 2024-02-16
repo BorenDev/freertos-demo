@@ -28,31 +28,34 @@
       "inherits": "local_deps"
     },
     {
-      "name": "demo_posix",
+      "name": "base_posix",
+      "hidden": true,
       "inherits": "default",
       "cacheVariables": {
-        "CONFIG_DEMO_POSIX": true,
+        "CONFIG_POSIX": true,
         "FREERTOS_PORT": "GCC_POSIX",
         "CMAKE_BUILD_TYPE": "Debug",
         "FREERTOS_HEAP": "3"
       }
     },
     {
-      "name": "demo_mingw",
+      "name": "base_mingw",
+      "hidden": true,
       "inherits": "default",
       "cacheVariables": {
-        "CONFIG_DEMO_MINGW": true,
+        "CONFIG_MINGW": true,
         "FREERTOS_PORT": "MSVC_MINGW",
         "CMAKE_BUILD_TYPE": "Debug",
         "FREERTOS_HEAP": "5"
       }
     },
     {
-      "name": "demo_pic32mz",
+      "name": "base_pic32mz",
       "inherits": "default",
+      "hidden": true,
       "generator": "Unix Makefiles",
       "cacheVariables": {
-        "CONFIG_DEMO_PIC32MZ": true,
+        "CONFIG_PIC32MZ": true,
         "FREERTOS_PORT": "MPLAB_PIC32MZ",
         "CMAKE_BUILD_TYPE": "Debug",
         "XC32_VERSION": "4.35",
@@ -61,6 +64,54 @@
         "PIC": "32MZ2048EFM144",
         "MPLABX_VERSION": "6.20",
         "FREERTOS_HEAP": "4"
+      }
+    },
+    {
+      "name": "demo_posix",
+      "inherits": "base_posix",
+      "cacheVariables": {
+        "CONFIG_DEMO": true,
+        "CONFIG_DEMO_POSIX": true
+      }
+    },
+    {
+      "name": "example_posix",
+      "inherits": "base_posix",
+      "cacheVariables": {
+        "CONFIG_EXAMPLE": true,
+        "CONFIG_EXAMPLE_POSIX": true
+      }
+    },
+    {
+      "name": "demo_mingw",
+      "inherits": "base_mingw",
+      "cacheVariables": {
+        "CONFIG_DEMO": true,
+        "CONFIG_DEMO_MINGW": true
+      }
+    },
+    {
+      "name": "example_mingw",
+      "inherits": "base_mingw",
+      "cacheVariables": {
+        "CONFIG_EXAMPLE": true,
+        "CONFIG_EXAMPLE_MINGW": true
+      }
+    },
+    {
+      "name": "demo_pic32mz",
+      "inherits": "base_pic32mz",
+      "cacheVariables": {
+        "CONFIG_DEMO": true,
+        "CONFIG_DEMO_PIC32MZ": true
+      }
+    },
+    {
+      "name": "example_pic32mz",
+      "inherits": "base_pic32mz",
+      "cacheVariables": {
+        "CONFIG_EXAMPLE": true,
+        "CONFIG_EXAMPLE_PIC32MZ": true
       }
     }
   ],
@@ -86,6 +137,21 @@
       "name": "demo_pic32mz",
       "inherits": "default",
       "configurePreset": "demo_pic32mz"
+    },
+    {
+      "name": "example_posix",
+      "inherits": "default",
+      "configurePreset": "example_posix"
+    },
+    {
+      "name": "example_mingw",
+      "inherits": "default",
+      "configurePreset": "example_mingw"
+    },
+    {
+      "name": "example_pic32mz",
+      "inherits": "default",
+      "configurePreset": "example_pic32mz"
     }
   ]
 }

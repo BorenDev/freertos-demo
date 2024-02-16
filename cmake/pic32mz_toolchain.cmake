@@ -18,6 +18,7 @@ set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
+# TODO: Cleanup, shouldn't have these defined here, should be target specific
 set(OPTIMIZATION 1)
 set(USER_FLAGS)
 set(USER_DEFINITIONS)
@@ -30,14 +31,14 @@ set(CMAKE_C_FLAGS
 set(CMAKE_ASM_FLAGS "${CFLAGS}
       -Wa,--defsym=__MPLAB_BUILD=1,--gdwarf-2")
 # Compiler flags and options
-set(MPROCESSOR "-mprocessor=${PIC}") # ${PIC_NAME})
+set(MPROCESSOR "-mprocessor=${PIC}") 
 set(MOPTIMIZATION "-O${OPTIMIZATION}")
 set(DEFINES "${USER_DEFINITIONS}")
 set(SYM_HEAP "--defsym=_min_heap_size=${HEAP}")
 set(SYM_BUILD "--defsym=__MPLAB_BUILD=1")
 set(LINKER_OPTS "--gc-sections,--no-code-in-dinit,--no-dinit-in-serial-mem")
 # TODO: shouldn't reference a target name here... needs cleanup
-set(LINKER_MAP "-Map=${CMAKE_CURRENT_BINARY_DIR}/Reader.map")
+set(LINKER_MAP "-Map=${CMAKE_CURRENT_BINARY_DIR}/target.map")
 set(MEMORY_FILE "--memorysummary,${CMAKE_CURRENT_BINARY_DIR}/memoryfile.xml")
 
 set(XC32_LINK_FLAGS

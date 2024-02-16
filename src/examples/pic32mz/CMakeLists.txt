@@ -1,37 +1,16 @@
 set(SOURCES
     ConfigPerformance.c
-    ISRTriggeredTask.c
-    ISRTriggeredTask_isr.S
-    IntQueueTimer.c
-    IntQueueTimer_isr.S
     ParTest/ParTest.c
-    RegisterTestTasks.S
-    flop_mz.c
     main.c
-    main_blinky.c
-    main_full.c
-    timertest.c
-    timertest_isr.S
-    ../Common/Minimal/GenQTest.c
-    ../Common/Minimal/QPeek.c
-    ../Common/Minimal/blocktim.c
-    ../Common/Minimal/flash_timer.c
-    ../Common/Minimal/semtest.c
-    ../Common/Minimal/IntQueue.c
-    ../Common/Minimal/QueueOverwrite.c
-    ../Common/Minimal/QueueSet.c
-    ../Common/Minimal/countsem.c
-    ../Common/Minimal/dynamic.c
-    ../Common/Minimal/recmutex.c
-    ../Common/Minimal/EventGroupsDemo.c)
+    )
 
-set(TARGET_NAME "RTOSDemo")
+set(TARGET_NAME "RTOSExample")
 
 set(TARGET_ELF_NAME "${TARGET_NAME}.elf")
 
 add_executable(${TARGET_ELF_NAME} ${SOURCES})
-target_include_directories(${TARGET_ELF_NAME} PUBLIC ../Common/include/ .)
-target_link_libraries(${TARGET_ELF_NAME} freertos_kernel)
+target_include_directories(${TARGET_ELF_NAME} PUBLIC ParTest/ .)
+target_link_libraries(${TARGET_ELF_NAME} freertos_kernel blinky)
 
 target_compile_options(
   ${TARGET_ELF_NAME}
