@@ -1,6 +1,3 @@
-if(CONFIG_DEMO)
-add_subdirectory(demos)
-endif()
-if(CONFIG_EXAMPLE)
-  add_subdirectory(examples)
+if(APP_NAME STREQUAL "blinky")
+  add_subdirectory(blinky)
 endif()

@@ -50,7 +50,7 @@
       }
     },
     {
-      "name": "base_pic32mz",
+      "name": "base_pic32mz2048efm144",
       "inherits": "default",
       "hidden": true,
       "generator": "Unix Makefiles",
@@ -67,51 +67,27 @@
       }
     },
     {
-      "name": "demo_posix",
+      "name": "blinky_posix_gcc",
       "inherits": "base_posix",
       "cacheVariables": {
-        "CONFIG_DEMO": true,
-        "CONFIG_DEMO_POSIX": true
+        "APP_NAME": "blinky",
+        "CONFIG_POSIX_GCC": true
       }
     },
     {
-      "name": "example_posix",
-      "inherits": "base_posix",
-      "cacheVariables": {
-        "CONFIG_EXAMPLE": true,
-        "CONFIG_EXAMPLE_POSIX": true
-      }
-    },
-    {
-      "name": "demo_mingw",
+      "name": "blinky_win32_mingw",
       "inherits": "base_mingw",
       "cacheVariables": {
-        "CONFIG_DEMO": true,
-        "CONFIG_DEMO_MINGW": true
+        "APP_NAME": "blinky",
+        "CONFIG_WIN32_MINGw": true
       }
     },
     {
-      "name": "example_mingw",
-      "inherits": "base_mingw",
+      "name": "blinky_pic32mz2048efm144",
+      "inherits": "base_pic32mz2048efm144",
       "cacheVariables": {
-        "CONFIG_EXAMPLE": true,
-        "CONFIG_EXAMPLE_MINGW": true
-      }
-    },
-    {
-      "name": "demo_pic32mz",
-      "inherits": "base_pic32mz",
-      "cacheVariables": {
-        "CONFIG_DEMO": true,
-        "CONFIG_DEMO_PIC32MZ": true
-      }
-    },
-    {
-      "name": "example_pic32mz",
-      "inherits": "base_pic32mz",
-      "cacheVariables": {
-        "CONFIG_EXAMPLE": true,
-        "CONFIG_EXAMPLE_PIC32MZ": true
+        "APP_NAME": "blinky",
+        "CONFIG_PIC32MZ2048EFM144": true
       }
     }
   ],
@@ -124,34 +100,19 @@
       "jobs": 12
     },
     {
-      "name": "demo_posix",
+      "name": "blinky_posix_gcc",
       "inherits": "default",
-      "configurePreset": "demo_posix"
+      "configurePreset": "blinky_posix_gcc"
     },
     {
-      "name": "demo_mingw",
+      "name": "blinky_win32_mingw",
       "inherits": "default",
-      "configurePreset": "demo_mingw"
+      "configurePreset": "blinky_win32_mingw"
     },
     {
-      "name": "demo_pic32mz",
+      "name": "blinky_pic32mz2048efm144",
       "inherits": "default",
-      "configurePreset": "demo_pic32mz"
-    },
-    {
-      "name": "example_posix",
-      "inherits": "default",
-      "configurePreset": "example_posix"
-    },
-    {
-      "name": "example_mingw",
-      "inherits": "default",
-      "configurePreset": "example_mingw"
-    },
-    {
-      "name": "example_pic32mz",
-      "inherits": "default",
-      "configurePreset": "example_pic32mz"
+      "configurePreset": "blinky_pic32mz2048efm144"
     }
   ]
 }

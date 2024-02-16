@@ -38,8 +38,8 @@ set(SYM_HEAP "--defsym=_min_heap_size=${HEAP}")
 set(SYM_BUILD "--defsym=__MPLAB_BUILD=1")
 set(LINKER_OPTS "--gc-sections,--no-code-in-dinit,--no-dinit-in-serial-mem")
 # TODO: shouldn't reference a target name here... needs cleanup
-set(LINKER_MAP "-Map=${CMAKE_CURRENT_BINARY_DIR}/target.map")
-set(MEMORY_FILE "--memorysummary,${CMAKE_CURRENT_BINARY_DIR}/memoryfile.xml")
+set(LINKER_MAP "-Map=${FIP_NAME}-${APP_NAME}.map")
+set(MEMORY_FILE "--memorysummary,${FIP_NAME}-${APP_NAME}-memory.xml")
 
 set(XC32_LINK_FLAGS
     "${SYM_HEAP},${SYM_BUILD},${LINKER_OPTS},${LINKER_MAP},${MEMORY_FILE}")
