@@ -15,14 +15,14 @@ if(NOT PROJECT_IS_TOP_LEVEL)
   set_directory_properties(PROPERTIES EXCLUDE_FROM_ALL ON)
 endif()
 
-if(CONFIG_POSIX_GCC)
-  set(FREE_RTOS_CFG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/posix")
-elseif(CONFIG_PIC32MZ)
-  set(FREE_RTOS_CFG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/pic32mz")
+if(CONFIG_DEMO_POSIX)
+  set(FREE_RTOS_CFG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/demos/posix")
+elseif(CONFIG_DEMO_PIC32MZ)
+  set(FREE_RTOS_CFG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/demos/pic32mz")
 
   include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/pic32mz_toolchain.cmake")
 
-elseif(CONFIG_MINGW)
+elseif(CONFIG_DEMO_MINGW)
   # set(CMAKE_C_COMPILER "/usr/bin/x86_64-w64-mingw32-gcc")
   # set(CMAKE_ASM_COMPILER "/usr/bin/x86_64-w64-mingw32-as")
   # include_directories("/usr/x86_64-w64-mingw32/include/")
@@ -33,7 +33,7 @@ elseif(CONFIG_MINGW)
   # *) cd build *) cmake -DCMAKE_TOOLCHAIN_FILE=~/mingw-w64-x86_64.cmake .. This
   # is free and unencumbered software released into the public domain.
 
-  set(FREE_RTOS_CFG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/win32")
+  set(FREE_RTOS_CFG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/demos/win32")
 
   set(CMAKE_SYSTEM_NAME Windows)
   set(TOOLCHAIN_PREFIX "x86_64-w64-mingw32")

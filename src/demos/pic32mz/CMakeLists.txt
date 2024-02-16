@@ -43,7 +43,7 @@ target_compile_definitions(
 target_link_options(${TARGET_ELF_NAME} PUBLIC ${MOPTIMIZATION})
 target_link_libraries(${TARGET_ELF_NAME} "-Wl,${XC32_LINK_FLAGS}")
 
-if(CONFIG_PIC32MZ)
+if(CONFIG_DEMO_PIC32MZ)
   # HEX file build command
   add_custom_command(
     OUTPUT ${TARGET_NAME}.hex

@@ -28,31 +28,33 @@
       "inherits": "local_deps"
     },
     {
-      "name": "posix",
+      "name": "demo_posix",
       "inherits": "default",
       "cacheVariables": {
-        "CONFIG_POSIX_GCC": true,
+        "CONFIG_DEMO_POSIX": true,
         "FREERTOS_PORT": "GCC_POSIX",
+        "CMAKE_BUILD_TYPE": "Debug",
         "FREERTOS_HEAP": "3"
       }
     },
     {
-      "name": "mingw",
+      "name": "demo_mingw",
       "inherits": "default",
       "cacheVariables": {
-        "CONFIG_MINGW": true,
+        "CONFIG_DEMO_MINGW": true,
         "FREERTOS_PORT": "MSVC_MINGW",
         "CMAKE_BUILD_TYPE": "Debug",
         "FREERTOS_HEAP": "5"
       }
     },
     {
-      "name": "pic32mz",
+      "name": "demo_pic32mz",
       "inherits": "default",
       "generator": "Unix Makefiles",
       "cacheVariables": {
-        "CONFIG_PIC32MZ": true,
+        "CONFIG_DEMO_PIC32MZ": true,
         "FREERTOS_PORT": "MPLAB_PIC32MZ",
+        "CMAKE_BUILD_TYPE": "Debug",
         "XC32_VERSION": "4.35",
         "DFP": "PIC32MZ-EF_DFP",
         "DFP_VERSION": "1.4.168",
@@ -67,20 +69,23 @@
       "name": "default",
       "hidden": true,
       "configurePreset": "default",
-      "cleanFirst": true,
+      "cleanFirst": false,
       "jobs": 12
     },
     {
-      "name": "posix",
-      "configurePreset": "posix"
+      "name": "demo_posix",
+      "inherits": "default",
+      "configurePreset": "demo_posix"
     },
     {
-      "name": "mingw",
-      "configurePreset": "mingw"
+      "name": "demo_mingw",
+      "inherits": "default",
+      "configurePreset": "demo_mingw"
     },
     {
-      "name": "pic32mz",
-      "configurePreset": "pic32mz"
+      "name": "demo_pic32mz",
+      "inherits": "default",
+      "configurePreset": "demo_pic32mz"
     }
   ]
 }
