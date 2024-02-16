@@ -67,7 +67,7 @@ The blinky demo is implemented and described in main_blinky.c.
 If mainCREATE_SIMPLE_BLINKY_DEMO_ONLY is not 1 then the comprehensive test and
 demo application will be built.  The comprehensive test and demo application is
 implemented and described in main_full.c. */
-#define mainCREATE_SIMPLE_BLINKY_DEMO_ONLY    0
+#define mainCREATE_SIMPLE_BLINKY_DEMO_ONLY    1
 
 /* This demo uses heap_5.c, and these constants define the sizes of the regions
 that make up the total heap.  heap_5 is only used for test and example purposes
@@ -193,29 +193,6 @@ int main( void )
     is only used for test and example reasons.  Heap_4 is more appropriate.  See
     http://www.freertos.org/a00111.html for an explanation. */
     prvInitialiseHeap();
-
-    /* Do not include trace code when performing a code coverage analysis. */
-    #if( projCOVERAGE_TEST != 1 )
-    {
-        /* Initialise the trace recorder.  Use of the trace recorder is optional.
-        See http://www.FreeRTOS.org/trace for more information. */
-        configASSERT( xTraceInitialize() == TRC_SUCCESS );
-
-        /* Start the trace recording - the recording is written to a file if
-        configASSERT() is called. */
-        printf(
-                "Trace started.\r\n"
-                "Note that the trace output uses the ring buffer mode, meaning that the output trace\r\n"
-                "will only be the most recent data able to fit within the trace recorder buffer.\r\n\r\n"
-                "The trace will be dumped to the file \"%s\" whenever a call to configASSERT()\r\n"
-                "fails or the \'%c\' key is pressed.\r\n"
-                "Note that key presses cannot be captured in the Eclipse console, so for key presses to work\r\n"
-                "you will have to run this demo in a Windows console.\r\n\r\n",
-                mainTRACE_FILE_NAME, mainOUTPUT_TRACE_KEY );
-        fflush( stdout );
-        configASSERT( xTraceEnable( TRC_START ) == TRC_SUCCESS );
-    }
-    #endif
 
     /* The mainCREATE_SIMPLE_BLINKY_DEMO_ONLY setting is described at the top
     of this file. */

@@ -155,23 +155,6 @@ int main( void )
     /* SIGINT is not blocked by the posix port */
     signal( SIGINT, handle_sigint );
 
-    /* Do not include trace code when performing a code coverage analysis. */
-    #if ( projCOVERAGE_TEST != 1 )
-        {
-            /* Initialise the trace recorder.  Use of the trace recorder is optional.
-             * See http://www.FreeRTOS.org/trace for more information. */
-            vTraceEnable( TRC_START );
-
-            /* Start the trace recording - the recording is written to a file if
-             * configASSERT() is called. */
-            printf( "\r\nTrace started.\r\nThe trace will be dumped to disk if a call to configASSERT() fails.\r\n" );
-
-            #if ( TRACE_ON_ENTER == 1 )
-                printf( "\r\nThe trace will be dumped to disk if Enter is hit.\r\n" );
-            #endif
-        }
-    #endif /* if ( projCOVERAGE_TEST != 1 ) */
-
     console_init();
     #if ( mainSELECTED_APPLICATION == BLINKY_DEMO )
         {
