@@ -32,7 +32,8 @@
       "inherits": "default",
       "cacheVariables": {
         "CONFIG_POSIX_GCC": true,
-        "FREERTOS_PORT": "GCC_POSIX"
+        "FREERTOS_PORT": "GCC_POSIX",
+        "FREERTOS_HEAP": "3"
       }
     },
     {
@@ -40,12 +41,15 @@
       "inherits": "default",
       "cacheVariables": {
         "CONFIG_MINGW": true,
-        "FREERTOS_PORT": "MSVC_MINGW"
+        "FREERTOS_PORT": "MSVC_MINGW",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "FREERTOS_HEAP": "5"
       }
     },
     {
       "name": "pic32mz",
       "inherits": "default",
+      "generator": "Unix Makefiles",
       "cacheVariables": {
         "CONFIG_PIC32MZ": true,
         "FREERTOS_PORT": "MPLAB_PIC32MZ",
@@ -53,7 +57,8 @@
         "DFP": "PIC32MZ-EF_DFP",
         "DFP_VERSION": "1.4.168",
         "PIC": "32MZ2048EFM144",
-        "MPLABX_VERSION": "6.20"
+        "MPLABX_VERSION": "6.20",
+        "FREERTOS_HEAP": "4"
       }
     }
   ],
@@ -61,24 +66,21 @@
     {
       "name": "default",
       "hidden": true,
-      "configurePreset": "default"
+      "configurePreset": "default",
+      "cleanFirst": true,
+      "jobs": 12
     },
     {
       "name": "posix",
-      "configurePreset": "posix",
-      "cleanFirst": true,
-      "jobs": 12
+      "configurePreset": "posix"
     },
     {
       "name": "mingw",
-      "configurePreset": "mingw",
-      "cleanFirst": true,
-      "jobs": 12
+      "configurePreset": "mingw"
     },
     {
       "name": "pic32mz",
-      "configurePreset": "pic32mz",
-      "cleanFirst": true
+      "configurePreset": "pic32mz"
     }
   ]
 }

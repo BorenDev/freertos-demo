@@ -1,6 +1,9 @@
-add_subdirectory(hello)
-# :J: if(CONFIG_PIC32MZ)
-
-# :J:   add_subdirectory(PIC32MZ_MPLAB)
-
-# :J: endif()
+if(CONFIG_PIC32MZ)
+  add_subdirectory(pic32mz)
+endif()
+if(CONFIG_MINGW)
+  add_subdirectory(win32)
+endif()
+if(CONFIG_POSIX_GCC)
+  add_subdirectory(posix)
+endif()
