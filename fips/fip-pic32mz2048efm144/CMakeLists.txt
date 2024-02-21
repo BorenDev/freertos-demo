@@ -15,7 +15,7 @@ target_link_libraries(${TARGET_ELF_NAME} freertos_kernel ${APP_NAME})
 target_compile_options(
   ${TARGET_ELF_NAME}
   PUBLIC ${USER_FLAGS} ${MOPTIMIZATION} -fdata-sections -ffunction-sections
-         -no-legacy-libc -mdfp=${DFP_PATH})
+         -mdfp=${DFP_PATH})
 target_compile_definitions(
   ${TARGET_ELF_NAME} PUBLIC XPRJ_default=default ${DEFINES}
                             -DconfigUSE_TASK_FPU_SUPPORT=0)

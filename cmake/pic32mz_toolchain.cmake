@@ -25,7 +25,7 @@ set(USER_DEFINITIONS)
 set(HEAP 4)
 
 set(CMAKE_C_FLAGS
-    "${CMAKE_C_FLAGS} -mprocessor=${PIC} -fdata-sections -ffunction-sections -no-legacy-libc"
+    "${CMAKE_C_FLAGS} -mprocessor=${PIC} -fdata-sections -ffunction-sections"
 )
 
 set(CMAKE_ASM_FLAGS "${CFLAGS}
