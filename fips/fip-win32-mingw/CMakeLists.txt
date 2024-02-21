@@ -1,8 +1,4 @@
-set(SOURCES
-    main.c
-    Run-time-stats-utils.c
-    code_coverage_additions.c
-    )
+set(SOURCES main.c Run-time-stats-utils.c)
 
 set(TARGET_NAME "${FIP_NAME}-${APP_NAME}")
 
