@@ -19,7 +19,7 @@
       "hidden": true,
       "inherits": "base",
       "cacheVariables": {
-        "FETCHCONTENT_SOURCE_DIR_FREERTOS_KERNEL": "dependencies/FreeRTOS-Kernel/"
+        "FETCHCONTENT_SOURCE_DIR_FREERTOS_KERNEL": "${sourceDir}/dependencies/FreeRTOS-Kernel/"
       }
     },
     {
